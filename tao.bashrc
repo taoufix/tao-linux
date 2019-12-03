@@ -7,7 +7,7 @@ _custom_usr="${HOME}/.tao"
 # ------------------------------------------------------------------------------
 
 ## Editors
-export EDITOR="emacs -nw"
+export EDITOR="emacs --no-window-system"
 
 ## Language
 export LC_ALL=en_US.utf8
