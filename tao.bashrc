@@ -28,7 +28,7 @@ PS1='$(__git_ps1 "\[\033[01;34m\]┌[\[\033[01;33m\]%s\[\033[01;34m\]]\n└")\[\
 1;34m\] \W][\[\033[01;31m\]\j\[\033[01;34m\]]\$\[\033[00m\] '
 
 ## PATH
-export PATH="${HOME}/${_custom_usr}/bin:${HOME}/bin:${PATH}"
+export PATH="${_custom_usr}/bin:${HOME}/bin:${PATH}"
 
 # ------------------------------------------------------------------------------
 # Aliases
@@ -40,10 +40,10 @@ alias gbr='git checkout -b'
 alias gdi='git diff'
 
 # bashrc
-alias vibashrc="emacs ${HOME}/${_custom_usr}/tao.bashrc && . ${HOME}/.bashrc"
+alias vibashrc="emacs ${_custom_usr}/tao.bashrc && . ${HOME}/.bashrc"
 
 # Better defaults
-alias emacs='emacs --no-window-system'
+alias emacs='emacs -nw'
 alias rm='rm -i'
 alias grep='grep --color'
 alias ls='ls --color=auto'
