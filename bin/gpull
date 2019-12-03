@@ -1,0 +1,9 @@
+#!/bin/bash
+
+_current_branch="$(git rev-parse --abbrev-ref HEAD)"
+
+git stash &&
+    git checkout develop  &&
+    git pull &&
+    git checkout "${_current_branch}" &&
+    git pop
