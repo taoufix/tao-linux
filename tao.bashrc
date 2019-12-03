@@ -14,7 +14,7 @@ export LC_ALL=en_US.utf8
 export LANG=en_US.utf8
 
 ## History                                                                                                          
-export HISTIGNORE="&:ls:cd:[bf]g:rm *:vrm (.*)*:exit"
+export HISTIGNORE="&:ls:cd:[bf]g:rm *:rm -rf *:rm -f *:exit"
 
 ## PS1
 # Git
@@ -40,10 +40,10 @@ alias gbr='git checkout -b'
 alias gdi='git diff'
 
 # bashrc
-alias vibashrc="emacs ${HOME}/${_custom_usr}/bashrc && . ${HOME}/.bashrc"
+alias vibashrc="emacs ${HOME}/${_custom_usr}/tao.bashrc && . ${HOME}/.bashrc"
 
 # Better defaults
-alias emacs='emacs -nw'
+alias emacs='emacs --no-window-system'
 alias rm='rm -i'
 alias grep='grep --color'
 alias ls='ls --color=auto'
