@@ -54,3 +54,8 @@ alias trash='\rm -vf *~; true'
 
 # Lazy
 alias f='firefox'
+alias g='google-chrome'
+
+mkcd() {
+  mkdir -p "$1" && cd "$1"
+}
