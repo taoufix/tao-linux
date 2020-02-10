@@ -1,10 +1,14 @@
-# -*- shell-script -*-                                                                                                                                                                                                                        
+#!/bin/bash                                                                                                                                                                                                                                   
 
-CMD="column -s';' -t -n"
+cols() {
+    sed 's/;/;│ /g' "$1" | column -s";" -t -n
+}
 
 if [[ -n "$2" ]]; then
-    $CMD "$1" | head -n 1
-    $CMD "$1" | grep --color "$2"
+    header="$(cols "$1" | head -n 1)"
+    echo "${header}"
+    echo "${header}" | sed 's/[^│]/─/g; s/│/┼/g'
+    cols "$1" | grep --color "$2"
 else
-    $CMD "$1"
+    cols "$1"
 fi
