@@ -27,6 +27,9 @@ GIT_PS1_SHOWUPSTREAM='auto'
 PS1='$(__git_ps1 "\[\033[01;34m\]┌[\[\033[01;33m\]%s\[\033[01;34m\]]\n└")\[\033[01;34m\][\[\033[01;35m\]\u@\h\[\033[0\
 1;34m\] \W][\[\033[01;31m\]\j\[\033[01;34m\]]\$\[\033[00m\] '
 
+# Add return symbole when last command output has no line break
+PROMPT_COMMAND='printf "↵%$((COLUMNS-1))s\\r"'
+
 ## PATH
 export PATH="${_custom_usr}/bin:${HOME}/bin:${PATH}"
 
