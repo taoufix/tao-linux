@@ -40,7 +40,8 @@ magenta = curses.color_pair(7)
 
 
 # import config
-execfile("~/.env-ssh.conf.py")
+home = os.path.expanduser("~")
+execfile(home + "/.env-ssh.conf.py")
 
 MENU = "menu"
 COMMAND = "command"
