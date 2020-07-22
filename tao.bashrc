@@ -24,16 +24,13 @@ GIT_PS1_SHOWUNTRACKEDFILES='y'
 GIT_PS1_DESCRIBE_STYLE='contains'
 GIT_PS1_SHOWUPSTREAM='auto'
 
-PS1='\[\033[01;34m\][\[\033[01;35m\]\u@\h\[\033[01;34m\] \W]$(__git_ps1 "\[\033[01;34m\][\[\033[01;33m\]%s\[\033[01;34m\]]")[\[\033[01;31m\]\j\[\033[01;34m\]]\$\[\033[00m\] '
+PS1='\n↵\[\033[01;34m\][\[\033[01;35m\]\u@\h\[\033[01;34m\] \W]$(__git_ps1 "\[\033[01;34m\][\[\033[01;33m\]%s\[\033[01;34m\]]")[\[\033[01;31m\]\j\[\033[01;34m\]]\$\[\033[00m\] '
 
 # Add return symbole when last command output has no line break
 #PROMPT_COMMAND='printf "↵%$((COLUMNS-1))s\\r"'
 
-# Add return symbole when last command output has no line break
-PROMPT_COMMAND='printf "↵%$((COLUMNS-1))s\\r"'
-
 ## PATH
-export PATH="${_custom_usr}/bin:${HOME}/bin:${PATH}"
+export PATH="${HOME}/bin:${_custom_usr}/bin:${PATH}"
 
 # ------------------------------------------------------------------------------
 # Aliases
@@ -49,7 +46,7 @@ alias gp="git stash; git pull; git pop"
 alias vibashrc="emacs ${_custom_usr}/tao.bashrc && . ${HOME}/.bashrc"
 
 # Better defaults
-alias emacs='emacs -nw'
+alias emacs='emacs --no-window-system'
 alias rm='rm -i'
 alias grep='grep --color'
 alias ls='ls --color=auto'
