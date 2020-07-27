@@ -1,0 +1,11 @@
+$include /etc/inputrc
+
+# show possible completions if more than one completions are possible
+set show-all-if-ambiguous on
+set show-all-if-unmodified on
+
+# display colors when doing completion as `ls` does
+set colored-stats on
+
+# color tab-completion matched prefix part
+set colored-completion-prefix on
