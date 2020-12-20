@@ -24,10 +24,7 @@ GIT_PS1_SHOWUNTRACKEDFILES='y'
 GIT_PS1_DESCRIBE_STYLE='contains'
 GIT_PS1_SHOWUPSTREAM='auto'
 
-PS1='\n↵\[\033[01;34m\][\[\033[01;35m\]\u@\h\[\033[01;34m\] \W]$(__git_ps1 "\[\033[01;34m\][\[\033[01;33m\]%s\[\033[01;34m\]]")[\[\033[01;31m\]\j\[\033[01;34m\]]\$\[\033[00m\] '
-
-# Add return symbole when last command output has no line break
-#PROMPT_COMMAND='printf "↵%$((COLUMNS-1))s\\r"'
+PS1='\[\033[01;34m\][\[\033[01;35m\]\u@\h\[\033[01;34m\] \W]$(__git_ps1 "\[\033[01;34m\][\[\033[01;33m\]%s\[\033[01;34m\]]")[\[\033[01;31m\]\j\[\033[01;34m\]]\$\[\033[00m\] '
 
 ## PATH
 export PATH="${HOME}/bin:${_custom_usr}/bin:${PATH}"
@@ -54,10 +51,6 @@ alias dmesg='dmesg --human --nopager'
 
 # Utils
 alias trash='\rm -vf *~; true'
-
-# Lazy
-alias f='firefox'
-alias g='google-chrome'
 
 mkcd() {
   mkdir -p "$1" && cd "$1"

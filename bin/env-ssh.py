@@ -1,10 +1,13 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
 import curses, os, sys
 
-reload(sys)
-sys.setdefaultencoding("utf-8")
+# import config
+home = os.path.expanduser("~")
+conf = home + "/." + os.path.basename(__file__) + '.conf'
+if not os.path.isfile(conf):
+  print("Config file [%s] not found!" %conf)
+  sys.exit(1)
 
 screen = curses.initscr()
 curses.echo()
@@ -38,10 +41,12 @@ cyan = curses.color_pair(6)
 curses.init_pair(7, curses.COLOR_MAGENTA, -1)
 magenta = curses.color_pair(7)
 
-
-# import config
-home = os.path.expanduser("~")
-execfile(home + "/.env-ssh.conf.py")
+try:
+  with open(conf) as f:
+    exec(f.read())
+except IOError:
+  print("Problem reading configuration file [%s]" %conf)
+  sys.exit(1)
 
 MENU = "menu"
 COMMAND = "command"
@@ -65,16 +70,16 @@ for env in ENVS:
   env_entry = {
     'title': env['title'],
     'type': MENU,
-    'subtitle': "Selectioner un serveur :",
+    'subtitle': "Select a server:",
     'color': env['color'],
     'options': srv_list
   }
   env_list.append(env_entry)
 
 menu_data = {
-  'title': "ENVIRONNEMENTS PITHAGORE",
+  'title': "ENVIRONMENTS",
   'type': MENU,
-  'subtitle': "Selectioner un environnement :",
+  'subtitle': "Select an environment:",
   'color': curses.A_BOLD,
   'options': env_list
 }
@@ -86,7 +91,7 @@ def runmenu(menu, parent):
   if parent is None:
     lastoption = "Exit"
   else:
-    lastoption = "Retourner vers [%s]" % parent['title']
+    lastoption = "Go back to [%s]" % parent['title']
 
   optioncount = len(menu['options']) # how many options in this menu
 
