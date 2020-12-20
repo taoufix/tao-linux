@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# shellcheck disable=SC2034
 
 set -Eeuo pipefail
 trap cleanup SIGINT SIGTERM ERR EXIT
