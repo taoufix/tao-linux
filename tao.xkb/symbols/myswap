@@ -1,0 +1,5 @@
+partial modifier_keys
+xkb_symbols "fix_keys" {
+    replace key <CAPS>  { [ Shift_L ] };
+    replace key <PRSC>  { [ ISO_Level3_Shift ] };
+};
