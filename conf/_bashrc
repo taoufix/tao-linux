@@ -1,7 +1,5 @@
 # -*- shell-script -*- 
 
-_custom_usr="${HOME}/.tao"
-
 # ------------------------------------------------------------------------------
 # Exports
 # ------------------------------------------------------------------------------
@@ -27,7 +25,7 @@ GIT_PS1_SHOWUPSTREAM='auto'
 PS1='\[\033[01;34m\][\[\033[01;35m\]\u@\h\[\033[01;34m\] \W]$(__git_ps1 "\[\033[01;34m\][\[\033[01;33m\]%s\[\033[01;34m\]]")[\[\033[01;31m\]\j\[\033[01;34m\]]\$\[\033[00m\] '
 
 ## PATH
-export PATH="${HOME}/bin:${_custom_usr}/bin:${PATH}"
+export PATH="${HOME}/bin:${USER_DIR}/bin:${PATH}"
 
 # ------------------------------------------------------------------------------
 # Aliases
@@ -40,7 +38,7 @@ alias gdi='git diff'
 alias gp="git stash; git pull; git pop"
 
 # bashrc
-alias vibashrc="emacs ${_custom_usr}/tao.bashrc && . ${HOME}/.bashrc"
+alias vibashrc="emacs ${USER_DIR}/tao.bashrc && . ${HOME}/.bashrc"
 
 # Better defaults
 alias emacs='emacs --no-window-system'
@@ -51,7 +49,7 @@ alias dmesg='dmesg --human --nopager'
 alias diff='diff --color'
 
 # Utils
-alias trash='\rm -vf *~; true'
+alias trash='\rm -vf *~ .??*~; true'
 
 mkcd() {
   mkdir -p "$1" && cd "$1"

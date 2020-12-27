@@ -4,3 +4,35 @@
 
 ;; show line numbers
 (global-display-line-numbers-mode)
+
+;; UTF
+(prefer-coding-system 'utf-8)
+
+;; set the mouse paste to the point position and not the mouse position
+(setq mouse-yank-at-point t)
+
+;; typing "yes" or "no" is too much work, use "y" or "n"
+(fset 'yes-or-no-p 'y-or-n-p)
+
+;; turn wrapping on in horizontally-split windows
+(setq truncate-partial-width-windows nil)
+
+(setq inhibit-splash-screen t)
+
+;; no tool bar
+;(tool-bar-mode nil)
+
+;; use color fonts
+(global-font-lock-mode t)
+
+;; color selection
+(transient-mark-mode t)
+
+;; no cursor blinking
+(blink-cursor-mode nil)
+
+;; show paren matches
+(setq blink-matching-paren t)
+(setq show-paren-delay 0)
+(show-paren-mode t)
+

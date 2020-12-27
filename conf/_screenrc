@@ -1,0 +1,14 @@
+# -*- Shell-Script -*-
+startup_message off
+msgwait 1
+vbell off
+shell /bin/bash
+
+# hardstatus alwayslastline
+hardstatus alwayslastline "%{=b R}|%H|%{+b Y}|%Y.%m.%d %0c|%{+b G}|%{= g}%-Lw%{+ub G}%50>%n%f* %t%{= g}%+Lw%< %=|%{+b c}|         %l |"
+
+# Default screens
+screen -t main  0
+
+# Scroll
+termcapinfo xterm|xterms|xs|rxvt ti@:te@
