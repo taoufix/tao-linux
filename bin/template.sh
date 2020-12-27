@@ -18,7 +18,7 @@ Available options:
 -v, --verbose   Print script debug info
 -f, --flag      Some flag description
 -p, --param     Some param description
---no-color      Disable colors
+--no-color      Disable colorsi
 EOF
   exit
 }
