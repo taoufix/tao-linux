@@ -47,6 +47,7 @@ alias grep='grep --color'
 alias ls='ls --color=auto'
 alias dmesg='dmesg --human --nopager'
 alias diff='diff --color'
+alias jq='jq -C'
 
 # Utils
 alias trash='\rm -vf *~ .??*~; true'
