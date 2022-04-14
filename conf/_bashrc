@@ -1,6 +1,15 @@
 # -*- shell-script -*- 
 
 # ------------------------------------------------------------------------------
+# Behaviour
+# ------------------------------------------------------------------------------
+## History
+export HISTIGNORE="&:ls:cd:[bf]g:rm *:rm -rf *:rm -f *:exit"
+
+## Disable $ escaping
+shopt -s direxpand
+
+# ------------------------------------------------------------------------------
 # Exports
 # ------------------------------------------------------------------------------
 
@@ -10,9 +19,6 @@ export EDITOR="emacs --no-window-system"
 ## Language
 export LC_ALL=en_US.utf8
 export LANG=en_US.utf8
-
-## History                                                                                                          
-export HISTIGNORE="&:ls:cd:[bf]g:rm *:rm -rf *:rm -f *:exit"
 
 ## PS1
 # Git
