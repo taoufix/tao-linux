@@ -55,6 +55,9 @@ alias dmesg='dmesg --human --nopager'
 alias diff='diff -wu --color'
 alias jq='jq -C'
 
+# Docker
+alias dktail='docker logs -n 10 -f'
+
 # Utils
 alias trash='\rm -vf *~ .??*~; true'
 
