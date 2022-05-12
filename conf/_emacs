@@ -19,7 +19,8 @@
 
 
 ;; no tool bar
-(tool-bar-mode nil)
+;(tool-bar-mode nil)
+(menu-bar-mode nil)
 (setq inhibit-splash-screen t)
 
 ;; use color fonts
