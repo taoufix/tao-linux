@@ -1,4 +1,4 @@
-# -*- shell-script -*- 
+# -*- shell-script -*-
 
 # ------------------------------------------------------------------------------
 # Behaviour
@@ -17,8 +17,8 @@ shopt -s direxpand
 export EDITOR="emacs --no-window-system"
 
 ## Language
-export LC_ALL=en_US.utf8
-export LANG=en_US.utf8
+export LC_ALL=C.UTF-8
+export LANG=C.UTF-8
 
 ## PS1
 # Git
@@ -44,7 +44,7 @@ alias gdi='git diff'
 alias gp="git stash; git pull; git pop"
 
 # bashrc
-alias vibashrc="emacs ${USER_DIR}/tao.bashrc && . ${HOME}/.bashrc"
+alias vibashrc="emacs ${USER_DIR}/conf/_bashrc && . ${HOME}/.bashrc"
 
 # Better defaults
 alias emacs='emacs --no-window-system'
@@ -56,6 +56,7 @@ alias diff='diff -wu --color'
 alias jq='jq -C'
 
 # Docker
+alias dk=docker
 alias dktail='docker logs -n 10 -f'
 
 # Utils
@@ -63,4 +64,8 @@ alias trash='\rm -vf *~ .??*~; true'
 
 mkcd() {
   mkdir -p "$1" && cd "$1"
+}
+
+tssh() {
+  tmux new-window -n "$1" ssh "$1"
 }
