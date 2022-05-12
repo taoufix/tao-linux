@@ -1,9 +1,9 @@
-
 ;; backup in one place. flat, no tree structure
 (setq backup-directory-alist '(("" . "~/.emacs.d/backup")))
 
-;; show line numbers
+;; show line & column numbers
 (global-display-line-numbers-mode)
+(setq column-number-mode t)
 
 ;; UTF
 (prefer-coding-system 'utf-8)
@@ -17,10 +17,10 @@
 ;; turn wrapping on in horizontally-split windows
 (setq truncate-partial-width-windows nil)
 
-(setq inhibit-splash-screen t)
 
 ;; no tool bar
-;(tool-bar-mode nil)
+(tool-bar-mode nil)
+(setq inhibit-splash-screen t)
 
 ;; use color fonts
 (global-font-lock-mode t)
@@ -28,7 +28,7 @@
 ;; color selection
 (transient-mark-mode t)
 
-;; no cursor blinking
+;; disable cursor blinking
 (blink-cursor-mode nil)
 
 ;; show paren matches
@@ -36,3 +36,5 @@
 (setq show-paren-delay 0)
 (show-paren-mode t)
 
+;; tab size
+(setq default-tab-width 4)
