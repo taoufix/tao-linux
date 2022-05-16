@@ -19,7 +19,7 @@
 
 
 ;; no tool bar
-;(tool-bar-mode -1)
+;(tool-bar-mode nil)
 (menu-bar-mode -1)
 (setq inhibit-splash-screen t)
 
@@ -39,3 +39,4 @@
 
 ;; tab size
 (setq default-tab-width 4)
+
