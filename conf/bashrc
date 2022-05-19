@@ -44,7 +44,7 @@ alias gbr='git checkout -b'
 alias gdi='git diff'
 alias gp="git stash; git pull; git pop"
 function gci() {
-    git commit -am "$@"
+    git commit -am "$(echo -n $@)"
 }
 
 # bashrc
