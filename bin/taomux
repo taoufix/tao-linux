@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-
-if ! tmux has-session -t tao; then
-    tmux new -s tao -d
-    tmux new-window -t tao:main
-fi
-tmux attach -t tao

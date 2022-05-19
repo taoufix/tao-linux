@@ -9,6 +9,7 @@ export HISTIGNORE="&:ls:cd:[bf]g:rm *:rm -rf *:rm -f *:exit"
 ## Disable $ escaping
 shopt -s direxpand
 
+
 # ------------------------------------------------------------------------------
 # Exports
 # ------------------------------------------------------------------------------
@@ -33,6 +34,7 @@ PS1='\[\033[01;34m\][\[\033[01;35m\]\u@\h\[\033[01;34m\] \W]$(__git_ps1 "\[\033[
 ## PATH
 export PATH="${HOME}/bin:${USER_DIR}/bin:${PATH}"
 
+
 # ------------------------------------------------------------------------------
 # Aliases
 # ------------------------------------------------------------------------------
@@ -44,23 +46,27 @@ alias gdi='git diff'
 alias gp="git stash; git pull; git pop"
 
 # bashrc
-alias vibashrc="emacs ${USER_DIR}/conf/_bashrc && . ${HOME}/.bashrc"
+alias vibashrc="emacs ${USER_DIR}/conf/bashrc && . ${HOME}/.bashrc"
 
 # Better defaults
-alias emacs='emacs --no-window-system'
-alias rm='rm -i'
-alias grep='grep --color'
-alias ls='ls --color=auto'
-alias dmesg='dmesg --human --nopager'
-alias diff='diff -wu --color'
-alias jq='jq -C'
+alias emacs='\emacs --no-window-system'
+alias rm='\rm -i'
+alias grep='\grep --color'
+alias ls='\ls --color=auto'
+alias dmesg='\dmesg --human --nopager'
+alias diff='\diff -wu --color'
+alias jq='\jq -C'
+
+# Lazy
+alias e="${EDITOR}"
 
 # Docker
 alias dk=docker
-alias dktail='docker logs -n 10 -f'
+alias dktail='\docker logs -n 10 -f'
+alias dkup='\docker compose up -d'
 
 # Utils
-alias trash='\rm -vf *~ .??*~; true'
+alias trash='\rm -vf *~ .??*~ \#*\#; true'
 
 mkcd() {
   mkdir -p "$1" && cd "$1"
@@ -74,4 +80,8 @@ tssh() {
 # ------------------------------------------------------------------------------
 # Local config
 # ------------------------------------------------------------------------------
-[[ -f "$USER_DIR/opt/bashrc" ]] && . "$USER_DIR/opt/bashrc"
+if [[ -d "$USER_DIR/conf/bashrc.d" ]]; then
+    for f in "$USER_DIR/conf/bashrc.d/"*; do
+	. "$f"
+    done
+fi
