@@ -13,7 +13,7 @@ grep VmSwap  /proc/[0-9]*/status | sort -nr -k 2,2 | head | (
    	    paste <(echo -e "SWAP\n${swp}") <(psformat --pid ${pid})
 	    print_header=false
 	else
-	    paste <(echo -e "${swp}") <(psformat -h --pid ${pid})
+	    paste <(echo -e "${swp}") <(psformat h --pid ${pid})
 	fi
     done
 )

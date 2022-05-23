@@ -5,7 +5,7 @@
 # ------------------------------------------------------------------------------
 ## History
 export HISTIGNORE="&:ls:cd:[bf]g:rm *:rm -rf *:rm -f *:exit"
-
+export HISTTIMEFORMAT="%Y-%m-%d %T "
 ## Disable $ escaping
 shopt -s direxpand
 
@@ -31,7 +31,13 @@ GIT_PS1_SHOWUPSTREAM='auto'
 PS1='\[\033[01;34m\][\[\033[01;35m\]\u@\h\[\033[01;34m\] \W]$(__git_ps1 "\[\033[01;34m\][\[\033[01;33m\]%s\[\033[01;34m\]]")[\[\033[01;31m\]\j\[\033[01;34m\]]\$\[\033[00m\] '
 
 ## PATH
-export PATH="${HOME}/bin:${USER_DIR}/bin:${PATH}"
+__append_path() {
+    [[ ":${PATH}:" == *":${1}:"* ]] || PATH="${1}:${PATH}"   
+}
+__append_path "${HOME}/.local/bin"
+__append_path "${USER_DIR}/bin"
+__append_path "${HOME}/bin"
+export PATH
 
 
 # ------------------------------------------------------------------------------
