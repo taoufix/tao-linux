@@ -1,0 +1,13 @@
+#!/bin/bash
+
+WTTR_WORK="Issy-les-Moulineaux,+France"
+WTTR_HOME="Noisy-le-Grand,+France"
+
+case $1 in
+    -w) location="${WTTR_WORK}" ;;
+    -h) location="${WTTR_HOME}" ;;
+    -m) location="moon";;
+    *) location=""
+esac
+
+curl -fGsS --compressed "http://wttr.in/${location}"
