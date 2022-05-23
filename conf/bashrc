@@ -32,11 +32,19 @@ PS1='\[\033[01;34m\][\[\033[01;35m\]\u@\h\[\033[01;34m\] \W]$(__git_ps1 "\[\033[
 
 ## PATH
 __append_path() {
-    [[ ":${PATH}:" == *":${1}:"* ]] || PATH="${1}:${PATH}"   
+    if [[ ":${PATH}:" != *":${1}:"* ]]; then
+	 PATH="${1}:${PATH}"
+    fi
 }
-__append_path "${HOME}/.local/bin"
+
+# Added by Debian/Ubuntu in ~/.profile after .bashrc is sourced
+#__append_path "${HOME}/.local/bin"
+
 __append_path "${USER_DIR}/bin"
-__append_path "${HOME}/bin"
+
+# Added by Debian/Ubuntu in ~/.profile after .bashrc is sourced
+#__append_path "${HOME}/bin"
+
 export PATH
 
 
