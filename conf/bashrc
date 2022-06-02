@@ -67,6 +67,8 @@ alias vibashrc="emacs ${USER_DIR}/conf/bashrc && . ${HOME}/.bashrc"
 # Better defaults
 alias emacs='\emacs --no-window-system'
 alias rm='\rm -i'
+alias cp='\cp -i'
+alias mv='\mv -i'
 alias grep='\grep --color'
 alias ls='\ls --color=auto'
 alias dmesg='\dmesg --human --nopager'
@@ -77,25 +79,36 @@ alias jq='\jq -C'
 alias e="${EDITOR}"
 
 # Docker
-alias dk=docker
+alias dk='\docker'
 alias dktail='\docker logs -n 10 -f'
 alias dkup='\docker compose up -d'
+dkstop-all() {
+    \docker stop $(\docker ps --format '{{.Names}}')
+}
 
 # Utils
-alias trash='\rm -vf *~ .??*~ \#*\#; true'
+alias trash='\rm -vI *~ .??*~ \#*\#; true'
 
 mkcd() {
   mkdir -p "$1" && cd "$1"
 }
 
 tssh() {
-  tmux new-window -n "$1" ssh "$1"
+    tmux new-window -n "$1" ssh "$1"
 }
 
 backup() {
-  cp -v "$1" "${1}.pre-$(date -I)"
+    if [[ "$1" == "-o" ]]; then
+	cp -v "$2" "${2}.orig"
+    else
+	cp -v "$1" "${1}.pre-$(date -Iminutes)"
+    fi
 }
 
+# Trace network functions
+ntrace() {
+    strace -fp $1 -e trace=network
+}
 
 # ------------------------------------------------------------------------------
 # Local config
