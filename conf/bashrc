@@ -87,7 +87,7 @@ dkstop-all() {
 }
 
 # Utils
-alias trash='\rm -vI *~ .??*~ \#*\#; true'
+alias trash='\rm -vf *~ .??*~ \#*\#; true'
 
 mkcd() {
   mkdir -p "$1" && cd "$1"
