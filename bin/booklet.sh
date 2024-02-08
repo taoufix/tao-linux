@@ -12,7 +12,6 @@ _mktemp() {
 }
 
 _range() {
-    i=0
     ((a=0)); ((b=N/4))
     ((z=N)); ((y=N-b))
     while (( a < N/4 ))
@@ -76,7 +75,6 @@ N="$(_num_pages "$INPUT")"
 
 _mod_4
 _mod_8
-
 
 OUT="${1%.*}"_booklet.pdf
 
