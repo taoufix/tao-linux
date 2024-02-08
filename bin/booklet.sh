@@ -81,8 +81,6 @@ _mod_8
 
 OUT="${1%.*}"_booklet.pdf
 
-_range
-
 pdftk "$INPUT" cat $(_range) output "$OUT"
 
 echo "$OUT"
