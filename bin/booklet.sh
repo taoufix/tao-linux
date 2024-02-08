@@ -4,6 +4,7 @@ trap _cleanup SIGINT SIGTERM ERR EXIT
 INPUT="$1"
 
 _cleanup() {
+    trap - SIGINT SIGTERM ERR EXIT
     rm -f .booklet.*.pdf
 }
 
