@@ -28,7 +28,7 @@ _num_pages() {
 }
 
 _mk_blank() {
-    size=$(pdftk "$INPUT" dump_data | grep -m1 PageMediaDimensions | awk '{ x = $2 * 10; y = $3 * 10 ; print x"x"y}')
+    size=$(pdftk "$INPUT" dump_data | grep -m1 PageMediaDimensions | awk '{ x = int($2 * 10); y = int($3 * 10); print x"x"y}')
     tmp="$(_mktemp)"
     gs -q -sDEVICE=pdfwrite -o "$tmp" -g"$size" -c showpage
     echo "$tmp"
